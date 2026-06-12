@@ -1,62 +1,90 @@
-# Technical Due Diligence Demo
+# 72h Technical Due Diligence Flash
 
-A public demonstration repository for Jose Robles' Technical Due Diligence Flash service.
+Static Next.js site for Jose Robles' 72h Technical Due Diligence Flash service.
 
-This repository shows the style, structure, and level of judgment used to evaluate a software project before investment, acquisition, rescue, hiring a software agency, or taking over a troubled codebase.
+Live target:
 
-This is a demo only. The real internal generator, private review workflow, and client-specific analysis remain private.
+https://josediegorobles.github.io/technical-due-diligence-demo/
 
-## Who This Is For
+The site is designed to capture leads from founders, VCs, and business angels who need a fast senior technical review before investment, acquisition, rescue, agency handoff, or legacy takeover decisions.
 
-- Founders who need an independent view of their product's technical health.
-- CTOs who want a senior second opinion before a major decision.
-- Investors and business angels evaluating technical risk before writing a check.
-- Companies hiring a software agency and wanting to avoid expensive surprises.
-- Teams inheriting a legacy codebase after acquisition, vendor change, or internal transition.
+## Stack
 
-## Problems It Detects
+- Next.js 14 App Router
+- Tailwind CSS
+- shadcn/ui-style primitives
+- `next-mdx-remote` for markdown rendering
+- `@vercel/og` generated social images
+- Static export for GitHub Pages
 
-- Technical debt that will slow delivery or increase operating cost.
-- Architecture risk, including unclear boundaries, fragile integrations, and scaling bottlenecks.
-- Security risk from exposed secrets, weak access controls, unsafe data handling, or risky defaults.
-- Delivery risk caused by poor CI/CD, unclear ownership, unstable environments, or weak release practices.
-- Dependency risk from outdated libraries, abandoned packages, license concerns, or vulnerable components.
-- Bus factor issues where critical knowledge is concentrated in too few people.
-- Testing maturity gaps across unit, integration, end-to-end, and regression coverage.
-- Maintainability issues that make the system hard to understand, change, or onboard into.
+## Local Development
 
-## The Service
+```bash
+npm install
+npm run dev
+```
 
-### 72h Technical Due Diligence Flash Review
+Open http://localhost:3000.
 
-A focused senior engineering review designed to identify the most important technical risks quickly. The review is meant for business decisions where time matters and a full multi-week audit would be too slow or too expensive.
+## Build
 
-It combines repository analysis, dependency review, architecture assessment, security smell detection, testing/CI review, and senior engineering judgment.
+```bash
+npm run build
+```
 
-## Deliverables
+The static site is exported to `out/`.
 
-- Executive summary.
-- Architecture overview.
-- Risk matrix.
-- Maintainability review.
-- Security observations.
-- Recommendations.
-- 30/60/90-day action plan.
+## Content
 
-## Pricing Placeholders
+Markdown is the source of truth under `content/`.
 
-Pricing depends on scope, repository size, access level, and urgency.
+- `content/sample-report.md` powers `/sample`
+- `content/methodology.md` powers `/methodology`
+- `content/report-template.md` is kept as reusable source material
+- `content/case-study-placeholder.md` powers the empty case-study state
 
-- Lite review: focused review of one repository or product area.
-- Full review: broader review across architecture, codebase, process, dependencies, and delivery risk.
-- Review + call + action plan: written report, walkthrough call, and prioritized remediation roadmap.
+Editing those files and rebuilding updates the site.
 
-## Sample Materials
+## Adding A Case Study
 
-- [Sample technical due diligence report](sample-report.md)
-- [Review methodology](methodology.md)
-- [Reusable report template](report-template.md)
+Do not invent case studies. Add only approved, publishable material.
 
-## Contact
+Create a markdown file in `content/case-studies/`:
 
-Contact Jose Robles for a 72h review.
+```md
+---
+title: "Approved case study title"
+status: "Published"
+excerpt: "Short summary for the listing page."
+---
+
+# Approved case study title
+
+Case study body.
+```
+
+Then rebuild:
+
+```bash
+npm run build
+```
+
+The listing at `/case-studies` will pick up the new file on rebuild. The current public shell links case study cards to the booking page until publishable detail pages are approved.
+
+## Booking And Contact
+
+`/book` embeds the real Calendly profile:
+
+https://calendly.com/jd-robles
+
+The fallback contact form opens a mail draft. Override the recipient with:
+
+```bash
+NEXT_PUBLIC_CONTACT_EMAIL=you@example.com
+```
+
+## GitHub Pages Deploy
+
+The workflow in `.github/workflows/deploy.yml` builds the static export and publishes `out/` to the `gh-pages` branch.
+
+For GitHub Pages, set the Pages source to the `gh-pages` branch after the first successful workflow run.
