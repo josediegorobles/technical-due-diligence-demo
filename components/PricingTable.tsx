@@ -5,19 +5,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const tiers = [
   {
     name: "Lite",
-    price: "$1.500",
+    price: "From $1,500",
     description: "Focused review of one repository or product area.",
     items: ["Executive summary", "Risk matrix", "Priority fixes"],
   },
   {
     name: "Full",
-    price: "$4.500",
+    price: "From $4,500",
     description: "Broader review across codebase, process, architecture, and delivery risk.",
     items: ["Full written report", "Architecture and CI review", "30/60/90-day plan"],
   },
   {
     name: "Review + Call + Plan",
-    price: "$8.000",
+    price: "From $8,000",
     description: "Written review, walkthrough call, and prioritized remediation roadmap.",
     items: ["Founder/investor briefing", "Action plan", "Follow-up decision support"],
   },
@@ -35,8 +35,9 @@ export function PricingTable() {
             Pick the review depth that matches the decision.
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Ranges, scoped on call. Final scope depends on repository size, access,
-            urgency, and whether interviews or remediation planning are included.
+            Starting prices, scoped on call. Final scope depends on repository
+            size, access, urgency, and whether interviews or remediation planning
+            are included.
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">

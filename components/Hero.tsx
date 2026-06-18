@@ -42,7 +42,7 @@ export function Hero() {
             </Button>
           </div>
           <p className="mt-5 text-sm text-muted-foreground">
-            Typical range: $1.500-$8.000, scoped on call.
+            Typical starting points: $1,500-$8,000, scoped on call.
           </p>
         </div>
 

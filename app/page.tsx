@@ -110,7 +110,8 @@ export default function HomePage() {
           <div>
             <h2 className="text-3xl font-semibold">Need the technical read this week?</h2>
             <p className="mt-2 max-w-2xl text-primary-foreground/80">
-              Book a short call, confirm scope, and get a decision-oriented review.
+              Book a short call to confirm scope, access, and whether a
+              decision-oriented review fits your timeline.
             </p>
           </div>
           <Button asChild size="lg" variant="secondary">
