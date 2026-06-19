@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, FileText, Gauge, LockKeyhole } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  ExternalLink,
+  FileJson,
+  FileText,
+  Gauge,
+  LockKeyhole,
+} from "lucide-react";
 
 import { Hero } from "@/components/Hero";
 import { PricingTable } from "@/components/PricingTable";
@@ -42,6 +50,27 @@ const fit = [
   "Acquisition or asset purchase review",
   "Troubled project rescue before adding budget",
   "Agency handoff or legacy codebase takeover",
+];
+
+const evidencePacks = [
+  {
+    name: "Tokio",
+    repo: "tokio-rs/tokio",
+    score: "46/100",
+    href: "https://github.com/josediegorobles/rust-technical-audit-toolkit/tree/main/docs/audit-packs/tokio",
+  },
+  {
+    name: "Axum",
+    repo: "tokio-rs/axum",
+    score: "46/100",
+    href: "https://github.com/josediegorobles/rust-technical-audit-toolkit/tree/main/docs/audit-packs/axum",
+  },
+  {
+    name: "Ratatui",
+    repo: "ratatui/ratatui",
+    score: "47/100",
+    href: "https://github.com/josediegorobles/rust-technical-audit-toolkit/tree/main/docs/audit-packs/ratatui",
+  },
 ];
 
 export default function HomePage() {
@@ -100,6 +129,61 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="container">
+          <div className="mb-10 grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+                Evidence packs
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+                See the delivery format before booking.
+              </h2>
+            </div>
+            <p className="text-lg leading-8 text-muted-foreground">
+              Public sample packs show the structure used in a fast technical review:
+              executive report, scorecard, evidence JSON, risk register, review
+              questions, and methodology.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {evidencePacks.map((pack) => (
+              <Link
+                key={pack.repo}
+                href={pack.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group rounded-lg border border-border bg-background p-5 transition hover:border-secondary hover:bg-white"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-sm font-semibold text-muted-foreground">
+                      {pack.repo}
+                    </p>
+                    <h3 className="mt-2 text-2xl font-semibold">{pack.name}</h3>
+                  </div>
+                  <ExternalLink className="h-5 w-5 text-muted-foreground transition group-hover:text-secondary" />
+                </div>
+                <div className="mt-6 grid grid-cols-[auto_1fr] gap-3 text-sm">
+                  <Gauge className="mt-0.5 h-4 w-4 text-accent" />
+                  <span>Heuristic scorecard: {pack.score}</span>
+                  <FileJson className="mt-0.5 h-4 w-4 text-accent" />
+                  <span>Evidence and risk register included</span>
+                  <FileText className="mt-0.5 h-4 w-4 text-accent" />
+                  <span>Executive report and review questions</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <p className="mt-5 max-w-3xl text-sm leading-6 text-muted-foreground">
+            These samples are heuristic triage outputs from public repositories, not
+            complete audits or judgments on those projects.
+          </p>
         </div>
       </section>
 
