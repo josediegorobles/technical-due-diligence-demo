@@ -1,8 +1,8 @@
-import { readFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 
 const files = [
-  "content/case-study-sample.md",
+  ...(await markdownFiles("content")),
   "scripts/generate-og.mjs",
 ];
 
@@ -25,4 +25,20 @@ for (const file of files) {
 
 if (failed) {
   process.exit(1);
+}
+
+async function markdownFiles(dir) {
+  const entries = await readdir(path.join(process.cwd(), dir), { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const relative = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await markdownFiles(relative)));
+    } else if (entry.isFile() && entry.name.endsWith(".md")) {
+      files.push(relative);
+    }
+  }
+
+  return files;
 }
