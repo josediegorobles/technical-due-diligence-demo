@@ -37,16 +37,16 @@ export async function getCaseStudies(): Promise<CaseStudy[]> {
     .map((entry) => entry.name);
 
   if (markdownFiles.length === 0) {
-    const placeholder = await readContentFile("case-study-placeholder.md");
+    const sample = await readContentFile("case-study-sample.md");
     return [
       {
-        slug: "coming-soon",
-        title: String(placeholder.data.title ?? "Coming soon"),
+        slug: "sample-rescue-review",
+        title: String(sample.data.title ?? "Anonymized rescue review sample"),
         excerpt: String(
-          placeholder.data.excerpt ??
+          sample.data.excerpt ??
             "Book a call to discuss whether a 72h technical due diligence review fits your decision."
         ),
-        status: String(placeholder.data.status ?? "Coming soon"),
+        status: String(sample.data.status ?? "Sample"),
         href: "/book",
       },
     ];

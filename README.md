@@ -41,7 +41,7 @@ Markdown is the source of truth under `content/`.
 - `content/sample-report.md` powers `/sample`
 - `content/methodology.md` powers `/methodology`
 - `content/report-template.md` is kept as reusable source material
-- `content/case-study-placeholder.md` powers the empty case-study state
+- `content/case-study-sample.md` powers the anonymized sample case-study state
 
 Editing those files and rebuilding updates the site.
 
