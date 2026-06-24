@@ -38,7 +38,7 @@ const pages = [
   {
     file: "case-studies.png",
     title: "Due diligence case studies",
-    subtitle: "Coming soon - book a call for a scoped 72h review.",
+    subtitle: "Anonymized sample evidence for a scoped 72h review.",
   },
 ];
 
