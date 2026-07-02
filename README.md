@@ -34,6 +34,23 @@ npm run build
 
 The static site is exported to `out/`.
 
+## Checks
+
+```bash
+npm run typecheck
+npm run check:content
+npm run build
+npm run check:links
+npm run check:mailto
+```
+
+`npm audit --audit-level=high` runs as an informational CI job. The current audit findings are accepted for this static export because they affect build-time/dev tooling rather than deployed runtime code:
+
+- `next` / bundled `postcss`: used to generate static HTML in CI; no Next server, image optimizer, middleware, rewrites, or RSC endpoint is deployed on GitHub Pages.
+- `next-mdx-remote`: MDX input is trusted repository content under `content/`, not user-submitted runtime content.
+- `eslint-config-next` / `@next/eslint-plugin-next` / `glob`: lint/build tooling only.
+- `gray-matter` transitive `js-yaml`: parses trusted markdown frontmatter during build.
+
 ## Content
 
 Markdown is the source of truth under `content/`.

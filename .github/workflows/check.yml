@@ -15,14 +15,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20.19.0
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
       - name: Typecheck
-        run: npm run typecheck
+        run: npx tsc --noEmit
 
       - name: Check content
         run: npm run check:content
@@ -31,3 +31,29 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_URL: https://josediegorobles.github.io/technical-due-diligence-demo
         run: npm run build
+
+      - name: Check links
+        run: npm run check:links
+
+      - name: Check mailto MX
+        run: npm run check:mailto
+
+  audit:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.19.0
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Informational audit
+        continue-on-error: true
+        run: npm audit --audit-level=high
