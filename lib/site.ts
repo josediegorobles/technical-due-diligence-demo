@@ -12,6 +12,9 @@ export const site = {
   contactFormAction:
     process.env.NEXT_PUBLIC_CONTACT_FORM_ACTION ??
     "https://formsubmit.co/jose@josedrobles.com",
+  plausibleDomain: process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN ?? "josediegorobles.github.io",
+  plausibleScriptSrc:
+    process.env.NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC ?? "https://plausible.io/js/script.js",
 };
 
 export function withBasePath(path: string) {

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
+import { PlausibleAnalytics } from "@/components/PlausibleAnalytics";
 import { Button } from "@/components/ui/button";
 import { absoluteSiteUrl, site } from "@/lib/site";
 
@@ -77,6 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 Calendly
               </Link>
             </div>
+            <PlausibleAnalytics />
           </div>
         </footer>
       </body>

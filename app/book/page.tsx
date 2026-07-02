@@ -3,6 +3,7 @@ import Script from "next/script";
 import { CalendarDays } from "lucide-react";
 
 import { ContactForm } from "@/components/ContactForm";
+import { TrackedCalendlyLink } from "@/components/TrackedCalendlyLink";
 import { Card, CardContent } from "@/components/ui/card";
 import { absoluteSiteUrl, site } from "@/lib/site";
 
@@ -56,6 +57,9 @@ export default function BookPage() {
                 repositories, stack, access constraints, and whether you need a
                 written report, call, or remediation plan.
               </p>
+              <div className="mt-5">
+                <TrackedCalendlyLink />
+              </div>
             </CardContent>
           </Card>
           <ContactForm />

@@ -5,6 +5,7 @@ import { Mail, Send } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { absoluteSiteUrl, site } from "@/lib/site";
+import { trackGoal } from "@/lib/telemetry";
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -21,6 +22,7 @@ export function ContactForm() {
     <form
       action={site.contactFormAction}
       method="POST"
+      onSubmit={() => trackGoal("Contact Form Submitted", { source: "book_page_form" })}
       className="grid gap-4 rounded-lg border border-border bg-white p-5"
     >
       <input type="hidden" name="_subject" value="72h Technical Due Diligence Flash lead" />

@@ -102,6 +102,20 @@ NEXT_PUBLIC_CONTACT_FORM_ACTION=https://formsubmit.co/your-form-or-email
 
 The visible fallback email link uses `NEXT_PUBLIC_CONTACT_EMAIL` and defaults to `jose@josedrobles.com`.
 
+## Privacy Analytics
+
+Plausible is loaded only after the visitor enables the anonymous analytics checkbox. No cookies are used. The site sends only conversion goals:
+
+- `Calendly Clicked`
+- `Contact Form Submitted`
+
+Override the Plausible configuration with:
+
+```bash
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=example.com
+NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC=https://plausible.example.com/js/script.js
+```
+
 ## GitHub Pages Deploy
 
 The workflow in `.github/workflows/deploy.yml` builds the static export and publishes `out/` to the `gh-pages` branch.
