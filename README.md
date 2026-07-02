@@ -77,11 +77,13 @@ The listing at `/case-studies` will pick up the new file on rebuild. The current
 
 https://calendly.com/jd-robles
 
-The fallback contact form opens a mail draft. Override the recipient with:
+The contact form posts directly to FormSubmit, so it works from the static GitHub Pages export without a backend. Override the POST endpoint with:
 
 ```bash
-NEXT_PUBLIC_CONTACT_EMAIL=you@example.com
+NEXT_PUBLIC_CONTACT_FORM_ACTION=https://formsubmit.co/your-form-or-email
 ```
+
+The visible fallback email link uses `NEXT_PUBLIC_CONTACT_EMAIL` and defaults to `jose@josedrobles.com`.
 
 ## GitHub Pages Deploy
 

@@ -9,6 +9,9 @@ export const site = {
     "Fast, senior technical due diligence for founders, VCs, and business angels before investment, acquisition, rescue, or agency handoff decisions.",
   calendlyUrl: "https://calendly.com/jd-robles",
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "jose@josedrobles.com",
+  contactFormAction:
+    process.env.NEXT_PUBLIC_CONTACT_FORM_ACTION ??
+    "https://formsubmit.co/jose@josedrobles.com",
 };
 
 export function withBasePath(path: string) {
