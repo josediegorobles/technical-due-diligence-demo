@@ -121,3 +121,7 @@ NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC=https://plausible.example.com/js/script.js
 The workflow in `.github/workflows/deploy.yml` builds the static export and publishes `out/` to the `gh-pages` branch.
 
 For GitHub Pages, set the Pages source to the `gh-pages` branch after the first successful workflow run.
+
+---
+
+Servicio relacionado: https://josedrobles.com/due-diligence/
