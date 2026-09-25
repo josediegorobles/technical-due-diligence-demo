@@ -124,4 +124,4 @@ For GitHub Pages, set the Pages source to the `gh-pages` branch after the first 
 
 ---
 
-Servicio relacionado: https://josedrobles.com/due-diligence/
+Part of: 3-Day Technical Risk Review — decide what to stabilise, rewrite or stop before spending another month of runway — https://josedrobles.com/due-diligence/
